@@ -37,13 +37,10 @@
         <a href="#">
           <i class="fa fa-users"></i>
           <span>Chain</span>
-          <span class="label label-primary pull-right">4</span>
+          <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-          <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-          <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-          <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+          <li><a href="{{URL::to('chain')}}"><i class="fa fa-circle-o"></i> List</a></li>
         </ul>
       </li>
       <li>

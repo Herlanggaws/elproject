@@ -14,7 +14,8 @@ class CreateChainsTable extends Migration
     {
         Schema::create('chains', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('name',25);
+            $table->text('about');
             $table->timestamps();
         });
     }
