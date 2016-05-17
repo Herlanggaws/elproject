@@ -13,6 +13,12 @@ Chain List
 @stop
 
 @section('content')
+@if (session('message'))
+<div class="alert alert-success">
+	{{ session('message') }}
+</div>
+@endif
+
 <table id="example2" class="table table-bordered table-hover">
 	<thead>
 		<tr>
@@ -36,9 +42,12 @@ Chain List
                     <span class="sr-only">Toggle Dropdown</span>
                   </button>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Show</a></li>
-                    <li><a href="#">Edit</a></li>
+                    <li><a href="{{url ('chain', $chain->id)}}">Show</a></li>
+                    <li><a href="{{ URL::to('chain/' . $chain->id . '/edit') }}">Edit</a></li>
                     <li><a href="#">Delete</a></li>
+                    <li class="divider"></li>
+                    <li><a href="{{URL::to('productCategory')}}">Product Category</a></li>
+                    <li><a href="#">Contact List</a></li>
                   </ul>
                 </div>
 			</td>
