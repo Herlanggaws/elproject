@@ -9,12 +9,12 @@ Create
 @stop
 
 @section('subtitle')
-Create New Chain
+Create New Product Category
 @stop
 
 @section('content')
-{!! Form::open(['url'=>'chain', 'role'=>"form"]) !!}
-@include('chain.form', ['buttonName'=>'Create'])
+{!! Form::model($productCateory , ['method'=> 'PATCH', 'action' => ['ProductCategoryController@update', $productCateory->id]]) !!}
+@include('product_category.form', ['buttonName'=>'Edit'])
 {!! Form::close() !!}
 
 @include('errors.list')

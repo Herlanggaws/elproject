@@ -45,17 +45,24 @@ class ChainController extends Controller
 	}
 
 	public function edit($id)
-    {
-    	$chain = Chain::findOrFail($id);
-    	return view('chain.edit', compact('chain'));
-    }
+	{
+		$chain = Chain::findOrFail($id);
+		return view('chain.edit', compact('chain'));
+	}
 
-    public function update(Request $request, $id)
-    {
-    	$chain = Chain::findOrFail($id);
+	public function update(Request $request, $id)
+	{
+		$chain = Chain::findOrFail($id);
 
-    	$chain->update($request->all());
+		$chain->update($request->all());
 
-    	return redirect('chain')->with('message', 'Data has been updated!');
-    }
+		return redirect('chain')->with('message', 'Data has been updated!');
+	}
+
+
+	public function destroy($id)
+	{
+		Chain::destroy($id);
+		return redirect('chain')->with('message', 'Data has been deleted!');;
+	}
 }

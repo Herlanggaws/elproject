@@ -9,17 +9,12 @@ Detail
 @stop
 
 @section('subtitle')
-Chain Detail
+{{$chain->name}}
 @stop
 
 @section('content')
 <div class="form-horizontal">
-	<div class="form-group">
-		<label class="col-sm-2">Name</label>
-		<div class="col-sm-10">
-			{{$chain->name}}
-		</div>
-	</div>
+	
 	<div class="form-group">
 		<label class="col-sm-2">About</label>
 		<div class="col-sm-10">
@@ -27,7 +22,7 @@ Chain Detail
 		</div>
 	</div>
 </div>
-<a href="{{ URL::to('chain/create') }}" class="btn btn-default btn-flat">Create</a>
+<a href="{{ URL::to('chain/' . $chain->id . '/edit') }}" class="btn btn-default btn-flat">Edit</a>
 @stop
 
 @section('custom_javascript')

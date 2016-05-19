@@ -36,20 +36,27 @@ Chain List
 			<td>{{str_limit($chain->about,100)}}</td>
 			<td>
 				<div class="btn-group">
-                  <button type="button" class="btn btn-default btn-flat">Action</button>
-                  <button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown">
-                    <span class="caret"></span>
-                    <span class="sr-only">Toggle Dropdown</span>
-                  </button>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="{{url ('chain', $chain->id)}}">Show</a></li>
-                    <li><a href="{{ URL::to('chain/' . $chain->id . '/edit') }}">Edit</a></li>
-                    <li><a href="#">Delete</a></li>
-                    <li class="divider"></li>
-                    <li><a href="{{URL::to('productCategory')}}">Product Category</a></li>
-                    <li><a href="#">Contact List</a></li>
-                  </ul>
-                </div>
+					<button type="button" class="btn btn-default btn-flat">Action</button>
+					<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown">
+						<span class="caret"></span>
+						<span class="sr-only">Toggle Dropdown</span>
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="{{url ('chain', $chain->id)}}">Show</a></li>
+						<li><a href="{{ URL::to('chain/' . $chain->id . '/edit') }}">Edit</a></li>
+
+						<li>
+							
+
+							{!! Form::model($chain, ['method'=> 'DELETE', 'action' => ['ChainController@destroy', $chain->id], 'onsubmit' => 'return ConfirmDelete()']) !!}
+							{!! Form::submit('Delete') !!}
+							{!! Form::close() !!}
+						</li>
+						<li class="divider"></li>
+						<li><a href="{{URL::to('productCategory/?chain_id='.$chain->id)}}">Product Category</a></li>
+						<li><a href="#">Contact List</a></li>
+					</ul>
+				</div>
 			</td>
 		</tr>
 		@endforeach
@@ -66,7 +73,16 @@ Chain List
 @stop
 
 @section('custom_javascript')
-
+<script type="text/javascript">
+function ConfirmDelete()
+{
+	var x = confirm("Are you sure?");
+	if (x)
+		return true;
+	else
+		return false;
+}
+</script>
 @stop
 
 
