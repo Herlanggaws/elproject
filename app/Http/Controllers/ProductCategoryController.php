@@ -9,6 +9,16 @@ use App\ProductCategory;
 
 class ProductCategoryController extends Controller
 {
+	/**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
 	public function index()
 	{
 		$id = \Request::get('chain_id');
@@ -22,6 +32,12 @@ class ProductCategoryController extends Controller
 		}
 		
 		return view('product_category.index', compact('productCategories'));
+	}
+
+	public function show($id){
+		$productCategory = ProductCategory::findOrFail($id);
+		return view('product_category.show', compact('productCategory'));
+
 	}
 
 

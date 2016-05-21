@@ -56,10 +56,8 @@
           <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li><a href="{{URL::to('productCategory')}}"><i class="fa fa-circle-o"></i>Product Categories</a></li>
-          <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
-          <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-          <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
+          <li><a href="{{URL::to('product')}}"><i class="fa fa-circle-o"></i> List</a></li>
+          <li><a href="{{URL::to('productCategory')}}"><i class="fa fa-circle-o"></i>Categories</a></li>
         </ul>
       </li>
       <li class="treeview">
