@@ -36,7 +36,8 @@ class ProductCategoryController extends Controller
 
 	public function show($id){
 		$productCategory = ProductCategory::findOrFail($id);
-		return view('product_category.show', compact('productCategory'));
+		$products = $productCategory->products()->paginate(10);
+		return view('product_category.show', compact('productCategory', 'products'));
 
 	}
 

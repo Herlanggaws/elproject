@@ -14,6 +14,10 @@ class Chain extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'about',
+        'name', 'about','website',
     ];
+
+    public function productCategories(){
+          return $this->hasMany('App\ProductCategory');
+     }
 }

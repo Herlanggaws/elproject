@@ -22,7 +22,7 @@ class ChainController extends Controller
     
 	public function index()
 	{
-		$chains = Chain::orderBy('id')->paginate(10);
+		$chains = Chain::orderBy('id','DESC')->paginate(10);
 		return view('chain.index', compact('chains'));
 	}
 

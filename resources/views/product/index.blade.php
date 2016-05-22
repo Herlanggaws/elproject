@@ -26,6 +26,7 @@ Product Category List
 			<th>Name</th>
 			<th>Price</th>
 			<th>Product Category</th>
+			<th>Available</th>
 			<th>Action</th>
 		</tr>
 	</thead>
@@ -36,6 +37,7 @@ Product Category List
 			<td>{{$product->name}}</td>
 			<td>{{$product->price}}</td>
 			<td>{{$product->productCategory->name}}</td>
+			<td>{{$product->available}}</td>
 			<td>
 				<div class="btn-group">
 					<button type="button" class="btn btn-default btn-flat">Action</button>

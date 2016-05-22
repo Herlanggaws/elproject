@@ -22,7 +22,11 @@ class ProductCategory extends Model
      	return $this->belongsTo('App\Chain')->withTrashed();
      }
 
-     /*get Type List*/
+     public function products(){
+          return $this->hasMany('App\Product');
+     }
+
+     /*get Chain List*/
      public static function getChainList()
      {
      	$chains = Chain::all('id','name');

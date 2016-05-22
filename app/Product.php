@@ -21,4 +21,17 @@ class Product extends Model
      {
      	return $this->belongsTo('App\productCategory')->withTrashed();
      }
+
+     /*get Category List*/
+     public static function getCategoryList()
+     {
+          $categories = ProductCategory::all('id','name');
+          $categoryList = array();
+
+          foreach ($categories as $category)
+          { 
+               $categoryList= array_add($categoryList, $category->id, $category->name);
+          }
+          return $categoryList;
+     }
 }

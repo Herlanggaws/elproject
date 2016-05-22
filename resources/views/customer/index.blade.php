@@ -1,7 +1,7 @@
 @extends('layouts.content_layout')
 
 @section('title')
-Chain
+Customer
 @stop
 
 @section('small_title')
@@ -9,7 +9,7 @@ Table
 @stop
 
 @section('subtitle')
-Chain List
+Customer List
 @stop
 
 @section('content')
@@ -23,19 +23,21 @@ Chain List
 	<thead>
 		<tr>
 			<th>Id</th>
-			<th>Name</th>
-			<th>Website</th>
-			<th>About</th>
-			<th>Action</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Email</th>
+			<th>DOB</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
-		@foreach($chains as $chain)
+		@foreach($customers as $customer)
 		<tr>
-			<td>{{$chain->id}}</td>
-			<td>{{$chain->name}}</td>
-			<td>{{$chain->website}}</td>
-			<td>{{str_limit($chain->about,100)}}</td>
+			<td>{{$customer->id}}</td>
+			<td>{{$customer->first_name}}</td>
+			<td>{{$customer->last_name}}</td>
+			<td>{{$customer->email}}</td>
+			<td>{{$customer->dob}}</td>
 			<td>
 				<div class="btn-group">
 					<button type="button" class="btn btn-default btn-flat">Action</button>
@@ -44,18 +46,18 @@ Chain List
 						<span class="sr-only">Toggle Dropdown</span>
 					</button>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="{{url ('chain', $chain->id)}}">Show</a></li>
-						<li><a href="{{ URL::to('chain/' . $chain->id . '/edit') }}">Edit</a></li>
+						<li><a href="{{url ('customer', $customer->id)}}">Show</a></li>
+						<li><a href="{{ URL::to('customer/' . $customer->id . '/edit') }}">Edit</a></li>
 
 						<li>
 							
 
-							{!! Form::model($chain, ['method'=> 'DELETE', 'action' => ['ChainController@destroy', $chain->id], 'onsubmit' => 'return ConfirmDelete()']) !!}
+							{!! Form::model($customer, ['method'=> 'DELETE', 'action' => ['CustomerController@destroy', $customer->id], 'onsubmit' => 'return ConfirmDelete()']) !!}
 							{!! Form::submit('Delete') !!}
 							{!! Form::close() !!}
 						</li>
 						<li class="divider"></li>
-						<li><a href="{{URL::to('productCategory/?chain_id='.$chain->id)}}">Product Category</a></li>
+						<li><a href="{{URL::to('customer/?chain_id='.$customer->id)}}">Product Category</a></li>
 						<li><a href="#">Contact List</a></li>
 					</ul>
 				</div>
@@ -70,8 +72,8 @@ Chain List
 	</tfoot>
 </table>
 <br/>
-<a href="{{ URL::to('chain/create') }}" class="btn btn-default btn-flat">Create</a>
-<?php echo $chains->render(); ?><br/>
+<a href="{{ URL::to('customer/create') }}" class="btn btn-default btn-flat">Create</a>
+<?php echo $customers->render(); ?><br/>
 @stop
 
 @section('custom_javascript')
