@@ -24,3 +24,4 @@ Route::resource('chain','ChainController');
 Route::resource('productCategory','ProductCategoryController');
 Route::resource('product','ProductController');
 Route::resource('customer','CustomerController');
+Route::resource('owner','OwnerController');

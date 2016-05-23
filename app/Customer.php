@@ -28,4 +28,9 @@ class Customer extends Authenticatable
     protected $hidden = [
     'password', 'remember_token',
     ];
+
+     public function chain()
+     {
+        return $this->belongsTo('App\Chain')->withTrashed();
+     }
 }

@@ -1,7 +1,7 @@
 @extends('layouts.content_layout')
 
 @section('title')
-Customer
+Owner
 @stop
 
 @section('small_title')
@@ -9,7 +9,7 @@ Table
 @stop
 
 @section('subtitle')
-Customer List
+Owner List
 @stop
 
 @section('content')
@@ -27,19 +27,19 @@ Customer List
 			<th>Last Name</th>
 			<th>Email</th>
 			<th>DOB</th>
-			<th>Chain</th>
+			
 			<th></th>
 		</tr>
 	</thead>
 	<tbody>
-		@foreach($customers as $customer)
+		@foreach($owners as $owner)
 		<tr>
-			<td>{{$customer->id}}</td>
-			<td>{{$customer->first_name}}</td>
-			<td>{{$customer->last_name}}</td>
-			<td>{{$customer->email}}</td>
-			<td>{{$customer->dob}}</td>
-			<td>{{$customer->chain->name}}</td>
+			<td>{{$owner->id}}</td>
+			<td>{{$owner->first_name}}</td>
+			<td>{{$owner->last_name}}</td>
+			<td>{{$owner->email}}</td>
+			<td>{{$owner->dob}}</td>
+			
 			<td>
 				<div class="btn-group">
 					<button type="button" class="btn btn-default btn-flat">Action</button>
@@ -48,18 +48,18 @@ Customer List
 						<span class="sr-only">Toggle Dropdown</span>
 					</button>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="{{url ('customer', $customer->id)}}">Show</a></li>
-						<li><a href="{{ URL::to('customer/' . $customer->id . '/edit') }}">Edit</a></li>
+						<li><a href="{{url ('owner', $owner->id)}}">Show</a></li>
+						<li><a href="{{ URL::to('owner/' . $owner->id . '/edit') }}">Edit</a></li>
 
 						<li>
 							
 
-							{!! Form::model($customer, ['method'=> 'DELETE', 'action' => ['CustomerController@destroy', $customer->id], 'onsubmit' => 'return ConfirmDelete()']) !!}
+							{!! Form::model($owner, ['method'=> 'DELETE', 'action' => ['OwnerController@destroy', $owner->id], 'onsubmit' => 'return ConfirmDelete()']) !!}
 							{!! Form::submit('Delete') !!}
 							{!! Form::close() !!}
 						</li>
 						<li class="divider"></li>
-						<li><a href="{{URL::to('customer/?chain_id='.$customer->id)}}">Product Category</a></li>
+						<li><a href="{{URL::to('owner/?chain_id='.$owner->id)}}">Product Category</a></li>
 						<li><a href="#">Contact List</a></li>
 					</ul>
 				</div>
@@ -74,8 +74,8 @@ Customer List
 	</tfoot>
 </table>
 <br/>
-<a href="{{ URL::to('customer/create') }}" class="btn btn-default btn-flat">Create</a>
-<?php echo $customers->render(); ?><br/>
+<a href="{{ URL::to('owner/create') }}" class="btn btn-default btn-flat">Create</a>
+<?php echo $owners->render(); ?><br/>
 @stop
 
 @section('custom_javascript')
