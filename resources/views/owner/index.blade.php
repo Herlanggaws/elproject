@@ -48,8 +48,8 @@ Owner List
 						<span class="sr-only">Toggle Dropdown</span>
 					</button>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="{{url ('owner', $owner->id)}}">Show</a></li>
-						<li><a href="{{ URL::to('owner/' . $owner->id . '/edit') }}">Edit</a></li>
+						<li><a href="{{url ('admin/owner', $owner->id)}}">Show</a></li>
+						<li><a href="{{ URL::to('admin/owner/' . $owner->id . '/edit') }}">Edit</a></li>
 
 						<li>
 							
@@ -58,9 +58,6 @@ Owner List
 							{!! Form::submit('Delete') !!}
 							{!! Form::close() !!}
 						</li>
-						<li class="divider"></li>
-						<li><a href="{{URL::to('owner/?chain_id='.$owner->id)}}">Product Category</a></li>
-						<li><a href="#">Contact List</a></li>
 					</ul>
 				</div>
 			</td>
@@ -74,7 +71,7 @@ Owner List
 	</tfoot>
 </table>
 <br/>
-<a href="{{ URL::to('owner/create') }}" class="btn btn-default btn-flat">Create</a>
+<a href="{{ URL::to('admin/owner/create') }}" class="btn btn-default btn-flat">Create</a>
 <?php echo $owners->render(); ?><br/>
 @stop
 

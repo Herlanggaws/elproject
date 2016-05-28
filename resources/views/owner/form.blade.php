@@ -25,7 +25,7 @@
 
 <div class="form-group">
 	{!! Form::label('zip_code', 'Zip Code') !!}
-	{!! Form::text('zip_code', null, ['class'=> 'form-control', 'placeholder'=>'Zip Code']) !!}
+	{!! Form::number('zip_code', null, ['class'=> 'form-control', 'placeholder'=>'Zip Code', 'maxlength'=>'5']) !!}
 </div>
 
 

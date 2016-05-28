@@ -5,18 +5,18 @@ Owner
 @stop
 
 @section('small_title')
-Create
+Edit
 @stop
 
 @section('subtitle')
-Create New Owner
+Edit {{$owner->first_name}}
 @stop
 
 @section('content')
-{!! Form::open(['url'=>'admin/owner', 'role'=>"form"]) !!}
-@include('owner.form', ['buttonName'=>'Create'])
+{!! Form::model($owner , ['method'=> 'PATCH', 'action' => ['OwnerController@update', $owner->id]]) !!}
+@include('owner.form', ['buttonName'=>'Edit'])
 {!! Form::close() !!}
-<br/>
+
 @include('errors.list')
 @stop
 

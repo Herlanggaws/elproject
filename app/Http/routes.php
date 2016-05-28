@@ -20,8 +20,8 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 
-Route::resource('chain','ChainController');
-Route::resource('productCategory','ProductCategoryController');
-Route::resource('product','ProductController');
-Route::resource('customer','CustomerController');
-Route::resource('owner','OwnerController');
+Route::resource('admin/chain','ChainController');
+Route::resource('admin/productCategory','ProductCategoryController');
+Route::resource('admin/product','ProductController');
+Route::resource('admin/customer','CustomerController');
+Route::resource('admin/owner','OwnerController');
