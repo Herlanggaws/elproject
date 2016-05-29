@@ -44,8 +44,8 @@ Chain List
 						<span class="sr-only">Toggle Dropdown</span>
 					</button>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="{{url ('chain', $chain->id)}}">Show</a></li>
-						<li><a href="{{ URL::to('chain/' . $chain->id . '/edit') }}">Edit</a></li>
+						<li><a href="{{url ('admin/chain', $chain->id)}}">Show</a></li>
+						<li><a href="{{ URL::to('admin/chain/' . $chain->id . '/edit') }}">Edit</a></li>
 
 						<li>
 							
@@ -55,8 +55,8 @@ Chain List
 							{!! Form::close() !!}
 						</li>
 						<li class="divider"></li>
-						<li><a href="{{URL::to('productCategory/?chain_id='.$chain->id)}}">Product Category</a></li>
-						<li><a href="#">Contact List</a></li>
+						<!-- <li><a href="{{URL::to('productCategory/?chain_id='.$chain->id)}}">Product Category</a></li> -->
+						
 					</ul>
 				</div>
 			</td>
@@ -69,9 +69,10 @@ Chain List
 		</tr>
 	</tfoot>
 </table>
-<br/>
-<a href="{{ URL::to('chain/create') }}" class="btn btn-default btn-flat">Create</a>
 <?php echo $chains->render(); ?><br/>
+<br/>
+<a href="{{ URL::to('admin/chain/create') }}" class="btn btn-default btn-flat">Create</a>
+
 @stop
 
 @section('custom_javascript')

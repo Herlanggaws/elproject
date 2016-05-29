@@ -34,11 +34,11 @@ class ChainController extends Controller
 	public function store(Request $request){
 		try {
 			Chain::create($request->all());
-			return redirect('chain')->with('message', 'Data has been created!');;
+			return redirect('admin/chain')->with('message', 'Data has been created!');;
 		} catch (\Illuminate\Database\QueryException $e) {
-			return redirect('chain')->with('message', 'Data have been used!');
+			return redirect('admin/chain')->with('message', 'Data have been used!');
 		} catch (\PDOException $e) {
-			return redirect('chain')->with('message', 'Data dengan email tersebut sudah digunakan!');
+			return redirect('admin/chain')->with('message', 'Data dengan email tersebut sudah digunakan!');
 		}
 	}
 
@@ -66,13 +66,13 @@ class ChainController extends Controller
 
 		$chain->update($request->all());
 
-		return redirect('chain')->with('message', 'Data has been updated!');
+		return redirect('admin/chain')->with('message', 'Data has been updated!');
 	}
 
 
 	public function destroy($id)
 	{
 		Chain::destroy($id);
-		return redirect('chain')->with('message', 'Data has been deleted!');;
+		return redirect('admin/chain')->with('message', 'Data has been deleted!');;
 	}
 }

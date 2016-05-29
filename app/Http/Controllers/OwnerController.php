@@ -24,8 +24,16 @@ class OwnerController extends Controller
 
     public function index()
     {
-    	$owners = Owner::orderBy('id', 'DESC')->paginate(10);
-    	return view('owner.index', compact('owners'));
+        $search = \Request::get('search');
+        $getCategory = \Request::get('category');
+        if (is_null($search) || is_null($getCategory) || $search == "" || $getCategory == ""){
+            $owners = Owner::orderBy('id', 'DESC')->paginate(10);
+        }else{
+            $owners = Owner::where($getCategory,'like','%'.$search.'%')->orderBy('id', 'DESC')->paginate(10);
+        }
+
+        $category = array(''=>'category', 'email'=>'Email', 'first_name'=>'First Name', 'last_name'=>'last Name', 'address'=>'Address', 'owner_code'=>'Owner Code');
+        return view('owner.index', compact('owners','category'));
     }
 
 

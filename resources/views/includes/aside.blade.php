@@ -34,23 +34,23 @@
 
       </li>
       <li class="treeview">
-        <a href="{{URL::to('chain')}}">
+        <a href="{{URL::to('admin/owner')}}">
           <i class="fa fa-male"></i>
           <span>Owner</span>
           <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li><a href="{{URL::to('chain')}}"><i class="fa fa-circle-o"></i>List</a></li>
+          <li><a href="{{URL::to('admin/owner')}}"><i class="fa fa-circle-o"></i>List</a></li>
         </ul>
       </li>
       <li class="treeview">
-        <a href="{{URL::to('chain')}}">
+        <a href="{{URL::to('admin/chain')}}">
           <i class="fa fa-user-plus"></i>
           <span>Chain</span>
           <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li><a href="{{URL::to('chain')}}"><i class="fa fa-circle-o"></i>List</a></li>
+          <li><a href="{{URL::to('admin/chain')}}"><i class="fa fa-circle-o"></i>List</a></li>
         </ul>
       </li>
       <li class="treeview">

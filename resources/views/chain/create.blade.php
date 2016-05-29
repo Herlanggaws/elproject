@@ -13,7 +13,7 @@ Create New Chain
 @stop
 
 @section('content')
-{!! Form::open(['url'=>'chain', 'role'=>"form"]) !!}
+{!! Form::open(['url'=>'admin/chain', 'role'=>"form"]) !!}
 @include('chain.form', ['buttonName'=>'Create'])
 {!! Form::close() !!}
 
