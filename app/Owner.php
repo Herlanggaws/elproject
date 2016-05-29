@@ -12,4 +12,9 @@ class Owner extends Model
     protected $fillable = [
         'first_name', 'last_name', 'email', 'address', 'phone_number', 'zip_code', 'dob', 'password','owner_code',
     ];
+
+    public function chain(){
+        return $this->hasMany('App\Chain');
+    }
 }
+

@@ -1,4 +1,9 @@
 <div class="form-group">
+	{!! Form::label('owner_id', 'Owner Code') !!}
+	{!! Form::text('owner_id', null, ['class'=> 'form-control', 'placeholder'=>'Owner Id']) !!}
+</div>
+
+<div class="form-group">
 	{!! Form::label('name', 'Name') !!}
 	{!! Form::text('name', null, ['class'=> 'form-control', 'placeholder'=>'Name']) !!}
 </div>

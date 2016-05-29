@@ -18,7 +18,7 @@ Chain List
 	{{ session('message') }}
 </div>
 @endif
-
+@include('includes.search_form',['url'=>'admin/chain','link'=>'admin/chain']) 
 <table id="example2" class="table table-bordered table-hover">
 	<thead>
 		<tr>
@@ -26,7 +26,8 @@ Chain List
 			<th>Name</th>
 			<th>Website</th>
 			<th>About</th>
-			<th>Action</th>
+			<th>Owner Id</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -36,6 +37,7 @@ Chain List
 			<td>{{$chain->name}}</td>
 			<td>{{$chain->website}}</td>
 			<td>{{str_limit($chain->about,100)}}</td>
+			<td>{{$chain->owner->id}}</td>
 			<td>
 				<div class="btn-group">
 					<button type="button" class="btn btn-default btn-flat">Action</button>

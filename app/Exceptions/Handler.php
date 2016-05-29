@@ -17,10 +17,10 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontReport = [
-        AuthorizationException::class,
-        HttpException::class,
-        ModelNotFoundException::class,
-        ValidationException::class,
+    AuthorizationException::class,
+    HttpException::class,
+    ModelNotFoundException::class,
+    ValidationException::class,
     ];
 
     /**
@@ -33,6 +33,10 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $e)
     {
+        if ($e instanceof \Illuminate\Database\Eloquent\ModelNotFoundException){
+            abort(404);
+        }
+
         parent::report($e);
     }
 
