@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ChainRequest;
 
 use App\Http\Requests;
 
@@ -41,7 +42,7 @@ class ChainController extends Controller
 		return view('chain.create');
 	}
 
-	public function store(Request $request){
+	public function store(ChainRequest $request){
 		$owner = Owner::where('id','=',$request->input('owner_id'))->orderBy('id')->first();
 
 		try {
@@ -78,7 +79,7 @@ class ChainController extends Controller
 		return view('chain.edit', compact('chain'));
 	}
 
-	public function update(Request $request, $id)
+	public function update(ChainRequest $request, $id)
 	{
 		$chain = Chain::findOrFail($id);
 

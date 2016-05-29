@@ -16,7 +16,7 @@ Create New Chain
 {!! Form::model($chain, ['method'=> 'PATCH', 'action' => ['ChainController@update', $chain->id]]) !!}
 @include('chain.form', ['buttonName'=>'Edit'])
 {!! Form::close() !!}
-
+<br/>
 @include('errors.list')
 @stop
 

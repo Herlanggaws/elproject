@@ -71,7 +71,7 @@ class OwnerController extends Controller
         return view('owner.edit', compact('owner'));
     }
 
-    public function update(Request $request, $id)
+    public function update(OwnerRequest $request, $id)
     {
         $now = new DateTime();
         $owner = Owner::findOrFail($id);

@@ -16,7 +16,7 @@ Create New Chain
 {!! Form::open(['url'=>'admin/chain', 'role'=>"form"]) !!}
 @include('chain.form', ['buttonName'=>'Create'])
 {!! Form::close() !!}
-
+<br/>
 @include('errors.list')
 @stop
 
