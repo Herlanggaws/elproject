@@ -60,8 +60,8 @@
           <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li><a href="{{URL::to('product')}}"><i class="fa fa-circle-o"></i> List</a></li>
-          <li><a href="{{URL::to('productCategory')}}"><i class="fa fa-circle-o"></i>Categories</a></li>
+          <li><a href="{{URL::to('/admin/product')}}"><i class="fa fa-circle-o"></i> List</a></li>
+          <li><a href="{{URL::to('/admin/product_category')}}"><i class="fa fa-circle-o"></i>Categories</a></li>
         </ul>
       </li>
       <li class="treeview">

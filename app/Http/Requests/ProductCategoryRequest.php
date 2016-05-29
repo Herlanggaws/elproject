@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class ChainRequest extends Request
+class ProductCategoryRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +25,7 @@ class ChainRequest extends Request
     {
         return [
             'name' => 'required|min:2',
-            'website' => 'required|min:2',
-            'about' => 'required|min:2',
+            'chain_id' => 'required|min:2',
         ];
     }
 }

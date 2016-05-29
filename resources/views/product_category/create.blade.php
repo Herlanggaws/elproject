@@ -1,7 +1,7 @@
 @extends('layouts.content_layout')
 
 @section('title')
-Chain
+Product Category
 @stop
 
 @section('small_title')
@@ -13,10 +13,10 @@ Create New Product Category
 @stop
 
 @section('content')
-{!! Form::open(['url'=>'productCategory', 'role'=>"form"]) !!}
+{!! Form::open(['url'=>'admin/product_category', 'role'=>"form"]) !!}
 @include('product_category.form', ['buttonName'=>'Create'])
 {!! Form::close() !!}
-
+<br/>
 @include('errors.list')
 @stop
 

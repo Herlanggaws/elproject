@@ -1,7 +1,7 @@
 @extends('layouts.content_layout')
 
 @section('title')
-Product Category
+Product
 @stop
 
 @section('small_title')
@@ -9,7 +9,7 @@ Table
 @stop
 
 @section('subtitle')
-Product Category List
+Product List
 @stop
 
 @section('content')
@@ -67,7 +67,7 @@ Product Category List
 	</tfoot>
 </table>
 <br/>
-<a href="{{ URL::to('product/create') }}" class="btn btn-default btn-flat">Create</a>
+<a href="{{ URL::to('admin/product/create') }}" class="btn btn-default btn-flat">Create</a>
 <?php echo $products->render(); ?><br/>
 @stop
 

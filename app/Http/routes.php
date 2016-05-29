@@ -21,7 +21,7 @@ Route::get('/home', 'HomeController@index');
 
 
 Route::resource('admin/chain','ChainController');
-Route::resource('admin/productCategory','ProductCategoryController');
+Route::resource('admin/product_category','ProductCategoryController');
 Route::resource('admin/product','ProductController');
 Route::resource('admin/customer','CustomerController');
 Route::resource('admin/owner','OwnerController');

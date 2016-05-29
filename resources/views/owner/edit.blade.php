@@ -16,7 +16,7 @@ Edit {{$owner->first_name}}
 {!! Form::model($owner , ['method'=> 'PATCH', 'action' => ['OwnerController@update', $owner->id]]) !!}
 @include('owner.form', ['buttonName'=>'Edit'])
 {!! Form::close() !!}
-
+<br/>
 @include('errors.list')
 @stop
 

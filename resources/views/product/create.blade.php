@@ -13,7 +13,7 @@ Create New Product
 @stop
 
 @section('content')
-{!! Form::open(['url'=>'product', 'role'=>"form"]) !!}
+{!! Form::open(['url'=>'admin/product', 'role'=>"form"]) !!}
 @include('product.form', ['buttonName'=>'Create'])
 {!! Form::close() !!}
 

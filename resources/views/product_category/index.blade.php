@@ -19,12 +19,14 @@ Product Category List
 </div>
 @endif
 
+@include('includes.search_form',['url'=>'admin/product_category','link'=>'admin/product_category']) 
+
 <table id="example2" class="table table-bordered table-hover">
 	<thead>
 		<tr>
 			<th>Id</th>
 			<th>Name</th>
-			<th>Chain</th>
+			<th>Chain Id</th>
 			<th>Action</th>
 		</tr>
 	</thead>
@@ -33,7 +35,7 @@ Product Category List
 		<tr>
 			<td>{{$productCategory->id}}</td>
 			<td>{{$productCategory->name}}</td>
-			<td>{{$productCategory->chain->name}}</td>
+			<td>{{$productCategory->chain->id}}</td>
 			<td>
 				<div class="btn-group">
 					<button type="button" class="btn btn-default btn-flat">Action</button>
@@ -42,16 +44,14 @@ Product Category List
 						<span class="sr-only">Toggle Dropdown</span>
 					</button>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="{{url ('productCategory', $productCategory->id)}}">Show</a></li>
-						<li><a href="{{ URL::to('productCategory/' . $productCategory->id . '/edit') }}">Edit</a></li>
+						<li><a href="{{url ('admin/product_category', $productCategory->id)}}">Show</a></li>
+						<li><a href="{{ URL::to('admin/product_category/' . $productCategory->id . '/edit') }}">Edit</a></li>
 
 						<li>
 							{!! Form::model($productCategory, ['method'=> 'DELETE', 'action' => ['ProductCategoryController@destroy', $productCategory->id], 'onsubmit' => 'return ConfirmDelete()']) !!}
 							{!! Form::submit('Delete') !!}
 							{!! Form::close() !!}
 						</li>
-						<li class="divider"></li>
-						<li><a href="{{URL::to('productCategory')}}">Product List</a></li>
 					</ul>
 				</div>
 			</td>
@@ -65,7 +65,7 @@ Product Category List
 	</tfoot>
 </table>
 <br/>
-<a href="{{ URL::to('productCategory/create') }}" class="btn btn-default btn-flat">Create</a>
+<a href="{{ URL::to('admin/product_category/create') }}" class="btn btn-default btn-flat">Create</a>
 <?php echo $productCategories->render(); ?><br/>
 @stop
 

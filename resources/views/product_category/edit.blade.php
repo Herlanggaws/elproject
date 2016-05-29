@@ -16,7 +16,7 @@ Create New Product Category
 {!! Form::model($productCateory , ['method'=> 'PATCH', 'action' => ['ProductCategoryController@update', $productCateory->id]]) !!}
 @include('product_category.form', ['buttonName'=>'Edit'])
 {!! Form::close() !!}
-
+<br/>
 @include('errors.list')
 @stop
 

@@ -4,10 +4,11 @@
 </div>
 
 <div class="form-group">
-	{!! Form::label('chain', 'Chain') !!}
-	{!!  Form::select('chain_id', $chainList,null, array('class'=>'form-control select2', 'placeholder'=>'Select'))!!}
-	
+	{!! Form::label('chain', 'Chain Id') !!}
+	{!! Form::text('chain_id', null, ['class'=> 'form-control', 'placeholder'=>'Chain Id']) !!}
 </div>
+
+
 
 
 {!! Form::submit($buttonName,['class'=>'btn btn-default btn-flat']) !!}

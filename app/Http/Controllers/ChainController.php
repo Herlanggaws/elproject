@@ -25,14 +25,14 @@ class ChainController extends Controller
 	public function index()
 	{
 		$search = \Request::get('search');
-        $getCategory = \Request::get('category');
-        if (is_null($search) || is_null($getCategory) || $search == "" || $getCategory == ""){
-        	$chains = Chain::orderBy('id','DESC')->paginate(10);
-        } else {
-        	$chains = Chain::where($getCategory,'like','%'.$search.'%')->orderBy('id', 'DESC')->paginate(10);
-        }
+		$getCategory = \Request::get('category');
+		if (is_null($search) || is_null($getCategory) || $search == "" || $getCategory == ""){
+			$chains = Chain::orderBy('id','DESC')->paginate(10);
+		} else {
+			$chains = Chain::where($getCategory,'like','%'.$search.'%')->orderBy('id', 'DESC')->paginate(10);
+		}
 
-        $category = array(''=>'category', 'id'=>'Id', 'name'=>'Name', 'website'=>'Website', 'about'=>'About', 'owner_id'=>'Owner Id');
+		$category = array(''=>'category', 'id'=>'Id', 'name'=>'Name', 'website'=>'Website', 'about'=>'About', 'owner_id'=>'Owner Id');
 
 		return view('chain.index', compact('chains','category'));
 	}
@@ -82,10 +82,13 @@ class ChainController extends Controller
 	public function update(ChainRequest $request, $id)
 	{
 		$chain = Chain::findOrFail($id);
-
-		$chain->update($request->all());
-
-		return redirect('admin/chain')->with('message', 'Data has been updated!');
+		$owner = Owner::where('id','=',$request->input('owner_id'))->orderBy('id')->first();
+		if (is_null($owner)){
+			return redirect('admin/chain')->with('message', 'Owner Id Cant Find');
+		}else{
+			$chain->update($request->all());		
+			return redirect('admin/chain')->with('message', 'Data has been updated!');
+		}
 	}
 
 

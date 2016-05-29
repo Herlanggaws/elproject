@@ -1,5 +1,5 @@
 <div class="form-group">
-	{!! Form::label('owner_id', 'Owner Code') !!}
+	{!! Form::label('owner_id', 'Owner Id') !!}
 	{!! Form::text('owner_id', null, ['class'=> 'form-control', 'placeholder'=>'Owner Id']) !!}
 </div>
 

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\ProductCategoryRequest;
 use App\ProductCategory;
+use App\Chain;
 
 class ProductCategoryController extends Controller
 {
@@ -14,24 +16,23 @@ class ProductCategoryController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-    
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+
 	public function index()
 	{
-		$id = \Request::get('chain_id');
 		$search = \Request::get('search');
 		$getCategory = \Request::get('category');
 		
-		if (is_null($search) && is_null($getCategory) &&  is_null($id) &&  $search == "" &&  $getCategory == "" &&  $id == ""){
+		if (is_null($search) || is_null($getCategory) || $search == "" || $getCategory == ""){
 			$productCategories = ProductCategory::orderBy('id', 'DESC')->paginate(10);
 		} else {
-			$productCategories = ProductCategory::where('chain_id','=',$id)->orderBy('id', 'DESC')->paginate(10);
+			$productCategories = ProductCategory::where($getCategory,'like','%'.$search.'%')->orderBy('id', 'DESC')->paginate(10);
 		}
-		
-		return view('product_category.index', compact('productCategories'));
+		$category = array(''=>'category', 'id'=>'Id', 'name'=>'Name', 'chain_id'=>'Chain Id');
+		return view('product_category.index', compact('productCategories', 'category'));
 	}
 
 	public function show($id){
@@ -41,18 +42,22 @@ class ProductCategoryController extends Controller
 
 	}
 
-
 	public function create()
 	{
-		$chainList = ProductCategory::getChainList();
-		return view('product_category.create', compact('chainList'));
+		return view('product_category.create');
 	}
 
-	public function store(Request $request){
+	public function store(ProductCategoryRequest $request){
+		$chain = Chain::where('id','=',$request->input('chain_id'))->orderBy('id')->first();
 		try {
-			echo $request->chain_id;
-			ProductCategory::create($request->all());
-			return redirect('productCategory')->with('message', 'Data has been created!');
+			if (is_null($chain)){
+				return redirect('admin/product_category')->with('message', 'Chain Id Cant Find');
+			}else{
+				ProductCategory::create($request->all());
+				return redirect('admin/product_category')->with('message', 'Data has been created!');
+			}
+
+			
 		} catch (\Illuminate\Database\QueryException $e) {
 			return redirect('productCategory')->with('message', 'Data have been used!');
 		} catch (\PDOException $e) {
@@ -63,23 +68,28 @@ class ProductCategoryController extends Controller
 	public function edit($id)
 	{
 		$productCateory  = ProductCategory::findOrFail($id);
-		$chainList = ProductCategory::getChainList();
-		return view('product_category.edit', compact('productCateory', 'chainList'));
+		return view('product_category.edit', compact('productCateory'));
 	}
 
-	public function update(Request $request, $id)
+	public function update(ProductCategoryRequest $request, $id)
 	{
 		$productCateory  = ProductCategory::findOrFail($id);
+		$chain = Chain::where('id','=',$request->input('chain_id'))->orderBy('id')->first();
 
-		$productCateory ->update($request->all());
+		if (is_null($chain)){
+			return redirect('admin/product_category')->with('message', 'Chain Id Cant Find');
+		}else{
+			$productCateory ->update($request->all());
+			return redirect('admin/product_category')->with('message', 'Data has been updated!');
+		}
 
-		return redirect('productCategory')->with('message', 'Data has been updated!');
+		
 	}
 
 
 	public function destroy($id)
 	{
 		ProductCategory::destroy($id);
-		return redirect('productCategory')->with('message', 'Data has been deleted!');;
+		return redirect('admin/product_category')->with('message', 'Data has been deleted!');;
 	}
 }
