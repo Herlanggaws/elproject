@@ -1,16 +1,45 @@
-@extends('layouts.dashboard_layout')
-@section('content')
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Laravel</title>
 
+        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
-@include('includes.default_content')
+        <style>
+            html, body {
+                height: 100%;
+            }
 
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                display: table;
+                font-weight: 100;
+                font-family: 'Lato';
+            }
 
-@stop
+            .container {
+                text-align: center;
+                display: table-cell;
+                vertical-align: middle;
+            }
 
-@section('custom_javascript')
-<!-- Morris.js charts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="{{ URL::asset('assets/plugins/morris/morris.min.js') }}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ URL::asset('assets/dist/js/pages/dashboard.js') }}"></script>
-@stop
+            .content {
+                text-align: center;
+                display: inline-block;
+            }
+
+            .title {
+                font-size: 96px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="content">
+                <div class="title">This Site is Under Construction</div>
+            </div>
+        </div>
+    </body>
+</html>
