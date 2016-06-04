@@ -14,7 +14,7 @@ class AddWebsiteToChain extends Migration
     {
         Schema::table('chains', function($table)
         {
-             $table->string('website', 25)->change();
+             $table->string('website', 25);
         });
     }
 
