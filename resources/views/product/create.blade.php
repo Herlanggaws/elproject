@@ -16,7 +16,7 @@ Create New Product
 {!! Form::open(['url'=>'admin/product', 'role'=>"form"]) !!}
 @include('product.form', ['buttonName'=>'Create'])
 {!! Form::close() !!}
-
+<br/>
 @include('errors.list')
 @stop
 

@@ -16,7 +16,7 @@ Edit {{$product->name}}
 {!! Form::model($product , ['method'=> 'PATCH', 'action' => ['ProductController@update', $product->id]]) !!}
 @include('product.form', ['buttonName'=>'Edit'])
 {!! Form::close() !!}
-
+<br/>
 @include('errors.list')
 @stop
 
