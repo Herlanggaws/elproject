@@ -29,7 +29,6 @@ Owner List
 			<th>Last Name</th>
 			<th>Email</th>
 			<th>DOB</th>
-			<th>Owner Code</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -41,7 +40,6 @@ Owner List
 			<td>{{$owner->last_name}}</td>
 			<td>{{$owner->email}}</td>
 			<td>{{$owner->dob}}</td>
-			<td>{{$owner->owner_code}}</td>
 			<td>
 				<div class="btn-group">
 					<button type="button" class="btn btn-default btn-flat">Action</button>

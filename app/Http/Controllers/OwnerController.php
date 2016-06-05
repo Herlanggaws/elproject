@@ -32,7 +32,7 @@ class OwnerController extends Controller
             $owners = Owner::where($getCategory,'like','%'.$search.'%')->orderBy('id', 'DESC')->paginate(10);
         }
 
-        $category = array(''=>'category', 'email'=>'Email', 'first_name'=>'First Name', 'last_name'=>'last Name', 'address'=>'Address', 'owner_code'=>'Owner Code');
+        $category = array(''=>'category', 'email'=>'Email', 'first_name'=>'First Name', 'last_name'=>'last Name', 'address'=>'Address');
         return view('owner.index', compact('owners','category'));
     }
 
@@ -47,6 +47,7 @@ class OwnerController extends Controller
 
         try {
             $owner = new Owner;
+            $owner->id = $request->input('first_name')[3].$now->getTimestamp();
             $owner->first_name = $request->input('first_name');
             $owner->last_name = $request->input('last_name');
             $owner->email = $request->input('email');
@@ -55,7 +56,6 @@ class OwnerController extends Controller
             $owner->zip_code = $request->input('zip_code');
             $owner->dob = date('Y-m-d', strtotime($request->input('dob')));
             $owner->password = Hash::make('123456');
-            $owner->owner_code = $now->getTimestamp();
 
             $owner->save();
             return redirect('admin/owner')->with('message', 'Data has been created!');;
@@ -84,7 +84,6 @@ class OwnerController extends Controller
         $owner->zip_code = $request->input('zip_code');
         $owner->dob = date('Y-m-d', strtotime($request->input('dob')));
         $owner->password = Hash::make('123456');
-        $owner->owner_code = $now->getTimestamp();
 
         $owner->save();
 
