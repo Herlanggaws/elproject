@@ -1,13 +1,12 @@
 <?php
 // heroku database
-<?php
 // set url from heroku
-// $url = parse_url(getenv("DATABASE_URL"));
+$url = parse_url(getenv("DATABASE_URL"));
 
-// $host = $url["host"];
-// $username = $url["user"];
-// $password = $url["pass"];
-// $database = substr($url["path"], 1);
+$host = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$database = substr($url["path"], 1);
 
 return [
 
@@ -55,36 +54,36 @@ return [
 
     'connections' => [
 
-        'sqlite' => [
-            'driver' => 'sqlite',
-            'database' => env('DB_DATABASE', database_path('database.sqlite')),
-            'prefix' => '',
-        ],
+    'sqlite' => [
+    'driver' => 'sqlite',
+    'database' => env('DB_DATABASE', database_path('database.sqlite')),
+    'prefix' => '',
+    ],
 
-        'mysql' => [
-            'driver' => 'mysql',
-            'host' => env('DB_HOST', 'localhost'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
-            'charset' => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix' => '',
-            'strict' => false,
-            'engine' => null,
-        ],
+    'mysql' => [
+    'driver' => 'mysql',
+    'host' => env('DB_HOST', 'localhost'),
+    'port' => env('DB_PORT', '3306'),
+    'database' => env('DB_DATABASE', 'forge'),
+    'username' => env('DB_USERNAME', 'forge'),
+    'password' => env('DB_PASSWORD', ''),
+    'charset' => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    'prefix' => '',
+    'strict' => false,
+    'engine' => null,
+    ],
 
-        'pgsql' => [
-            'driver' => 'pgsql',
-            'host' => $host,
-            'database' => $database,
-            'username' => $username,
-            'password' => $password,
-            'charset' => 'utf8',
-            'prefix' => '',
-            'schema' => 'public',
-        ],
+    'pgsql' => [
+    'driver' => 'pgsql',
+    'host' => $host,
+    'database' => $database,
+    'username' => $username,
+    'password' => $password,
+    'charset' => 'utf8',
+    'prefix' => '',
+    'schema' => 'public',
+    ],
 
     ],
 
@@ -114,18 +113,18 @@ return [
 
     'redis' => [
 
-        'cluster' => false,
+    'cluster' => false,
 
-        'default' => [
-            'host' => env('REDIS_HOST', 'localhost'),
-            'password' => env('REDIS_PASSWORD', null),
-            'port' => env('REDIS_PORT', 6379),
-            'database' => 0,
-        ],
+    'default' => [
+    'host' => env('REDIS_HOST', 'localhost'),
+    'password' => env('REDIS_PASSWORD', null),
+    'port' => env('REDIS_PORT', 6379),
+    'database' => 0,
+    ],
 
     ],
 
-];
+    ];
 
 
 //local database
